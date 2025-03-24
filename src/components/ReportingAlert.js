@@ -66,7 +66,6 @@ const ReportingAlert = ({ onClose }) => {
         <input type="file" accept="image/*,video/*,.pdf" onChange={handleFileChange} />
 
         <button type="submit" className="submit-btn">Submit Report</button>
-        {/* <button type="button" className="close-btn" onClick={onClose}>Cancel</button> */}
       </form>
     </div>
   );

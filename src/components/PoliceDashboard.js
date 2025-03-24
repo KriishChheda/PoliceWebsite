@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "./PoliceDashboard.css"
 
-
-
-// Array of multiple latitudes and longitudes
 const locations = [
   {
     id: 1,
@@ -31,24 +28,12 @@ function PoliceDashboard() {
 
   return (
    <div className="landing-page-container">
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-brand">Police Portal</div>
-        <div className="navbar-links">
-          <a href="#home">Home</a>
-          <a href="#cases">Cases</a>
-          <a href="#alerts">Alerts</a>
-        </div>
-      </nav>
-
-      {/* Map Section */}
       <div className="map-container">
         <MapContainer center={[19.1202, 72.8351]} zoom={12} style={{ height: '500px', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          {/* Loop through alertList to display markers */}
           {alertList.map((alert) => (
             <Marker key={alert.id} position={alert.location}>
               <Popup>
@@ -60,7 +45,6 @@ function PoliceDashboard() {
         </MapContainer>
       </div>
 
-      {/* Alert Section */}
       <div className="alert-section">
         <h2>Recent Alerts</h2>
         {alertList.length > 0 ? (
