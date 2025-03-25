@@ -4,6 +4,21 @@ import './CurNews.css';
 
 
 const Modal = ({ news, onClose }) => {
+  let speech = new SpeechSynthesisUtterance();
+
+  const startSpeech = () => {
+    speech.text = news.description || 'No description available.';
+    speech.lang = 'en-US'; // Change language if needed
+    speech.rate = 1; // Normal speed
+    speech.pitch = 1; // Normal pitch
+
+    window.speechSynthesis.speak(speech);
+  };
+
+  const stopSpeech = () => {
+    window.speechSynthesis.cancel(); // Stops speech immediately
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -11,7 +26,13 @@ const Modal = ({ news, onClose }) => {
         <h2>{news.title}</h2>
         <hr />
         <p><strong>Description:</strong> {news.description || 'No description available.'}</p>
-       
+
+        {/* Start and Stop Speech Buttons */}
+        <div className="tts-controls">
+          <button className="tts-button start-btn" onClick={startSpeech}>🔊 Start Speech</button>
+          <button className="tts-button stop-btn" onClick={stopSpeech}>⏹️ Stop Speech</button>
+        </div>
+
         <a 
           href={news.link} 
           target="_blank" 
@@ -23,6 +44,8 @@ const Modal = ({ news, onClose }) => {
     </div>
   );
 };
+
+
 
 function CurNews() {
   const [newsData, setNewsData] = useState([]); // newsData will contain the data fetched from the api

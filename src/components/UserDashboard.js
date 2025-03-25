@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { AlertCircle, XCircle } from "lucide-react";
+import { AlertCircle, XCircle, Mic } from "lucide-react";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const [showAllAlerts, setShowAllAlerts] = useState(false); // Toggle for showing all alerts
+  const [showAllAlerts, setShowAllAlerts] = useState(false);
   const [formData, setFormData] = useState({
     incidentName: "",
     address: "",
     file: null,
   });
   const [error, setError] = useState("");
+  const [listeningField, setListeningField] = useState(null);
 
   const alerts = [
     { id: 1, type: "warning", message: "A tiger has been spotted near Jim Corbett National Park. Authorities are working to contain the situation. Please stay indoors and avoid unnecessary travel." },
@@ -38,13 +39,30 @@ const Dashboard = () => {
     setError("");
   };
 
+  const handleSpeechRecognition = (field) => {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      alert("Your browser does not support speech recognition.");
+      return;
+    }
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 3;
+    recognition.onstart = () => setListeningField(field);
+    recognition.onend = () => setListeningField(null);
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setFormData((prev) => ({ ...prev, [field]: transcript }));
+    };
+    recognition.start();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.incidentName || !formData.address) {
       setError("Incident name and address are required.");
       return;
     }
-    console.log("Reported Incident:", formData);
     alert("Incident reported successfully!");
     setFormData({ incidentName: "", address: "", file: null });
   };
@@ -58,7 +76,7 @@ const Dashboard = () => {
       <div className="left-section">
         <div className="Label4">
           <hr />
-            <h3>Latest Alerts</h3>
+          <h3>Latest Alerts</h3>
           <hr />
         </div>
         {alerts.slice(0, showAllAlerts ? alerts.length : 3).map((alert) => (
@@ -78,35 +96,65 @@ const Dashboard = () => {
       </div>
 
       <div className="right-section">
-        <div className="Label4"> 
+        <div className="Label4">
           <hr />
-            <h3>Report An Incident</h3>
+          <h3>File An FIR</h3>
           <hr />
         </div>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
           <label>Incident Name:</label>
-          <input
-            type="text"
-            name="incidentName"
-            value={formData.incidentName}
-            onChange={handleChange}
-            required
-          />
+          <div style={{ position: "relative", width: "93%" }}>
+            <input 
+              type="text" 
+              name="incidentName" 
+              value={formData.incidentName} 
+              onChange={handleChange} 
+              required 
+              style={{ width: "100%", paddingRight: "30px" }} 
+            />
+            <Mic 
+              size={20} 
+              onClick={() => handleSpeechRecognition("incidentName")} 
+              style={{ 
+                position: "absolute", 
+                right: "15px", 
+                top: "50%", 
+                transform: "translateY(-50%)", 
+                cursor: "pointer", 
+                color: listeningField === "incidentName" ? "red" : "black" 
+              }} 
+            />
+          </div>
 
           <label>Address of Incident:</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
+          <div style={{ position: "relative", width: "93%" }}>
+            <input 
+              type="text" 
+              name="address" 
+              value={formData.address} 
+              onChange={handleChange} 
+              required 
+              style={{ width: "100%", paddingRight: "30px" }} 
+            />
+            <Mic 
+              size={20} 
+              onClick={() => handleSpeechRecognition("address")} 
+              style={{ 
+                position: "absolute", 
+                right: "15px", 
+                top: "50%", 
+                transform: "translateY(-50%)", 
+                cursor: "pointer", 
+                color: listeningField === "address" ? "red" : "black" 
+              }} 
+            />
+          </div>
 
           <label>Upload File (Optional):</label>
           <input type="file" accept="image/*,video/*,.pdf" onChange={handleFileChange} />
 
-          <button type="submit" className="submit-btn">Submit Report</button>
+          <button type="submit" className="submit-btn"> Submit FIR</button>
         </form>
       </div>
     </div>

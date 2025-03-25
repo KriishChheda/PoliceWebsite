@@ -5,8 +5,9 @@
     align-items: center;
     height: 100vh;
     padding: 40px;
-    background: linear-gradient(to right, #141e30, #243b55);
-    color: white;
+    background: linear-gradient(to right, #ECE8DD, #BFB8A5 );
+    /* background: linear-gradient(to right,#14213D ,#ECE8DD ); */
+    color: #6B6B6B;
   }
   
   /* Left Side */
@@ -24,6 +25,7 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
+    background-color: #14213D;
   }
   
   .subtitle {
@@ -32,8 +34,8 @@
   }
   
   .cta-button {
-    background-color: #ff5733;
-    color: white;
+    background-color: goldenrod;
+    color: black;
     border: none;
     padding: 12px 24px;
     font-size: 1.2rem;
@@ -43,7 +45,7 @@
   }
   
   .cta-button:hover {
-    background-color: #e64a19;
+    background-color: darkgoldenrod ;
   }
   
   .features-section {
@@ -52,7 +54,7 @@
   }
   
   .feature-box {
-    background: rgba(255, 255, 255, 0.1);
+    background: #14213D;
     padding: 20px;
     border-radius: 10px;
     width: 250px;
