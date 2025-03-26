@@ -11,6 +11,7 @@ function NavBar() {
         <Link to="/news">News</Link>
         <Link to="/police">Police Dashboard</Link>
         <Link to="/fir">FIR</Link>
+        <Link to="/discord">Discord</Link>
         <Link to="/stats">Stats</Link>
         <Link to="/cases">Cases</Link>
       </div>
