@@ -107,7 +107,7 @@ function CurNews() {
 
   return (
     <div className="news-container">
-      <h1>Latest News</h1>
+      <h1 className="h1label">Latest News</h1>
 
 
       <div className="language-dropdown">

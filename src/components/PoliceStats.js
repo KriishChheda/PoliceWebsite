@@ -157,7 +157,7 @@ function PoliceStats() {
             />
           </div>
           <div className="form-field">
-            <label >
+            <label className="checkbox-label">
               Case Solved
             </label>
             <input
@@ -166,6 +166,7 @@ function PoliceStats() {
                 name="caseSolved"
                 checked={formData.caseSolved}
                 onChange={handleInputChange}
+                style={{ marginLeft: "6px" }} 
               />
           </div>
           <div className="form-field">

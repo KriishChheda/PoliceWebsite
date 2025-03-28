@@ -9,7 +9,8 @@ import UserDashboard from "./components/UserDashboard";
 import ReportingAlert from "./components/ReportingAlert";
 import Fir from "./components/Fir";
 import LandingPage from "./components/LandingPage";
-import PoliceDiscord from "./PoliceDiscord";
+import PoliceDiscord from "./components/PoliceDiscord";
+import EmergencySection from "./components/EmergencySection";
 import "./App.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/report" element={<ReportingAlert />} />
           <Route path="/fir" element={<Fir/>}/>
           <Route path="/discord" element={<PoliceDiscord/>}/>
+          <Route path="/emergency" element={<EmergencySection/>}/>
         </Routes>
       </div>
     </>

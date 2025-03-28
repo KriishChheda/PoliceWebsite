@@ -62,14 +62,15 @@ const PoliceDiscord = () => {
         <div className="chat-messages">
           {messages.map((msg) => (
             <div key={msg.id} className="message">
-              <strong>{msg.sender}: </strong> {msg.text}
+              <strong>{msg.sender}: </strong> 
+              <p>{msg.text}</p>
               {msg.image && (
-                <img
-                  src={typeof msg.image === "string" ? msg.image : URL.createObjectURL(msg.image)}
-                  alt="Uploaded"
-                  className="message-image"
-                />
-              )}
+                                        <img
+                                          src={typeof msg.image === "string" ? msg.image : URL.createObjectURL(msg.image)}
+                                          alt="Uploaded"
+                                          className="message-image"
+                                        />
+                                      )}
             </div>
           ))}
         </div>

@@ -1,4 +1,3 @@
-/* Styling for the Current Cases container */
 .current-cases-container {
   margin-top: 40px;
   padding: 20px;
@@ -7,7 +6,6 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
 .current-cases-container h2 {
   font-size: 2rem;
   color: #333;
@@ -15,7 +13,6 @@
   font-weight: 600;
 }
 
-/* Dropdown Styling */
 .cases-dropdown {
   padding: 8px 12px;
   font-size: 1rem;
@@ -25,7 +22,6 @@
   cursor: pointer;
 }
 
-/* Table Styling */
 .cases-table {
   width: 100%;
   border-collapse: collapse;
@@ -41,24 +37,22 @@
 }
 
 .cases-table th {
-  background-color: #007bff;
+  background-color: #001F3F;
   color: white;
 }
 
-/* Status colors */
 .status-solved {
-  color: #4caf50; /* Green for solved cases */
+  color: #4caf50; 
 }
 
 .status-pending {
-  color: #ff9800; /* Orange for pending cases */
+  color: #ff9800; 
 }
 
 .status-unsolved {
-  color: #f44336; /* Red for unsolved cases */
+  color: #f44336; 
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .cases-table {
       font-size: 0.9rem;

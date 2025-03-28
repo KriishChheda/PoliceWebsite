@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate=useNavigate();
   return (
     <div className="landing-container">
       {/* Left Side - Text & Features */}
@@ -30,15 +32,15 @@ const LandingPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="feature-box">
+          <div className="feature-box" onClick={() => navigate("/fir")}>
             <h2>File FIR</h2>
             <p>Quickly submit an online complaint.</p>
           </div>
-          <div className="feature-box">
+          <div className="feature-box"  onClick={() => navigate("/cases")}>
             <h2>Track Cases</h2>
             <p>Stay updated on case progress.</p>
           </div>
-          <div className="feature-box">
+          <div className="feature-box"  onClick={() => navigate("/emergency")}>
             <h2>Emergency Help</h2>
             <p>Instantly reach law enforcement.</p>
           </div>

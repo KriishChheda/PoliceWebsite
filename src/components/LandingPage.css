@@ -5,12 +5,10 @@
     align-items: center;
     height: 100vh;
     padding: 40px;
-    background: linear-gradient(to right, #ECE8DD, #BFB8A5 );
-    /* background: linear-gradient(to right,#14213D ,#ECE8DD ); */
-    color: #6B6B6B;
+    background: linear-gradient(to right, #6A9AB0, #CFE4EC );
+    color: #F5EFE7;
   }
   
-  /* Left Side */
   .left-side {
     flex: 1;
     padding: 20px;
@@ -25,7 +23,7 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 10px;
-    background-color: #14213D;
+    background-color: #001F3F;
   }
   
   .subtitle {
@@ -34,7 +32,7 @@
   }
   
   .cta-button {
-    background-color: goldenrod;
+    background-color: #EAD8B1;
     color: black;
     border: none;
     padding: 12px 24px;
@@ -45,7 +43,7 @@
   }
   
   .cta-button:hover {
-    background-color: darkgoldenrod ;
+    background-color: #D8C4B6 ;
   }
   
   .features-section {
