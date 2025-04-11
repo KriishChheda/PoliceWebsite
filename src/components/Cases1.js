@@ -28,7 +28,7 @@ const Cases = () => {
         { caseId: 'C021', name: 'Officer Rekha Singh', status: 'Unsolved', description: 'Gold heist, mastermind unknown.', date: '2025-04-20' },
         { caseId: 'C022', name: 'Officer Manish Choudhary', status: 'Pending', description: 'Online scam, tracing perpetrators.', date: '2025-04-25' }
     ];
-// created an array of object , each object is one police officer.
+    
     const filteredCases = filter === "All" ? CurrentCases : CurrentCases.filter(caseItem => caseItem.status === filter);
 
     return (

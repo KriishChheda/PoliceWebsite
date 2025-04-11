@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./FirPolice.css";
 
 const Fir = () => {
-  const [crimeType, setCrimeType] = useState(""); // Selected crime type
+  const [crimeType, setCrimeType] = useState(""); 
   const [formData, setFormData] = useState({
     victimName: "",
     suspectName: "",
@@ -15,23 +15,20 @@ const Fir = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  // Handles input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handles file upload
   const handleFileChange = (e) => {
     setFormData({ ...formData, evidence: e.target.files[0] });
   };
 
-  // Handles form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("FIR Filed:", { crimeType, ...formData });
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000); // Show confirmation for 3 sec
+    setTimeout(() => setSubmitted(false), 3000); 
     setFormData({
       victimName: "",
       suspectName: "",

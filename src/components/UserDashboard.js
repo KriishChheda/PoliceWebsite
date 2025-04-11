@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { AlertCircle, XCircle, Mic } from "lucide-react";
-import "./Dashboard.css";
+import "./UserDashboard.css";
 
-const Dashboard = () => {
+const UserDashboard = () => {
   const [showAllAlerts, setShowAllAlerts] = useState(false);
   const [formData, setFormData] = useState({
     incidentName: "",
@@ -71,6 +71,11 @@ const Dashboard = () => {
     setFormData({ ...formData, file: e.target.files[0] });
   };
 
+  // Check if the device is mobile
+  const isMobile = () => {
+    return window.innerWidth <= 768;
+  };
+
   return (
     <div className="dashboard">
       <div className="left-section">
@@ -80,10 +85,10 @@ const Dashboard = () => {
           <hr />
         </div>
         {alerts.slice(0, showAllAlerts ? alerts.length : 3).map((alert) => (
-          <div key={alert.id} style={{ ...alertStyles[alert.type], padding: "15px", margin: "10px 0" }} className="alert-box">
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div key={alert.id} style={{ ...alertStyles[alert.type], padding: isMobile() ? "10px" : "15px", margin: "10px 0" }} className="alert-box">
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
               {alertIcons[alert.type]}
-              <span>{alert.message}</span>
+              <span style={{ fontSize: isMobile() ? "14px" : "16px" }}>{alert.message}</span>
             </div>
           </div>
         ))}
@@ -104,21 +109,21 @@ const Dashboard = () => {
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
           <label>Incident Name:</label>
-          <div style={{ position: "relative", width: "93%" }}>
+          <div style={{ position: "relative", width: isMobile() ? "100%" : "93%" }}>
             <input 
               type="text" 
               name="incidentName" 
               value={formData.incidentName} 
               onChange={handleChange} 
               required 
-              style={{ width: "100%", paddingRight: "30px" }} 
+              style={{ width: "100%", paddingRight: "30px", boxSizing: "border-box" }} 
             />
             <Mic 
-              size={20} 
+              size={isMobile() ? 18 : 20} 
               onClick={() => handleSpeechRecognition("incidentName")} 
               style={{ 
                 position: "absolute", 
-                right: "15px", 
+                right: "10px", 
                 top: "50%", 
                 transform: "translateY(-50%)", 
                 cursor: "pointer", 
@@ -128,21 +133,21 @@ const Dashboard = () => {
           </div>
 
           <label>Address of Incident:</label>
-          <div style={{ position: "relative", width: "93%" }}>
+          <div style={{ position: "relative", width: isMobile() ? "100%" : "93%" }}>
             <input 
               type="text" 
               name="address" 
               value={formData.address} 
               onChange={handleChange} 
               required 
-              style={{ width: "100%", paddingRight: "30px" }} 
+              style={{ width: "100%", paddingRight: "30px", boxSizing: "border-box" }} 
             />
             <Mic 
-              size={20} 
+              size={isMobile() ? 18 : 20} 
               onClick={() => handleSpeechRecognition("address")} 
               style={{ 
                 position: "absolute", 
-                right: "15px", 
+                right: "10px", 
                 top: "50%", 
                 transform: "translateY(-50%)", 
                 cursor: "pointer", 
@@ -152,13 +157,18 @@ const Dashboard = () => {
           </div>
 
           <label>Upload File (Optional):</label>
-          <input type="file" accept="image/*,video/*,.pdf" onChange={handleFileChange} />
+          <input 
+            type="file" 
+            accept="image/*,video/*,.pdf" 
+            onChange={handleFileChange} 
+            style={{ width: "100%", boxSizing: "border-box" }}
+          />
 
-          <button type="submit" className="submit-btn"> Submit FIR</button>
+          <button type="submit" className="submit-btn">Submit FIR</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default UserDashboard;

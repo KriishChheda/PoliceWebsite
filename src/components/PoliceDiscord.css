@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow-y: auto;
 }
 
 .sidebar-left h2, .sidebar-right h2 {
@@ -174,4 +175,156 @@
 
 .listOfActiveInactive {
   list-style: none;
+}
+
+.file-input {
+  background-color: #40444b;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile navigation controls */
+.mobile-nav {
+  display: none;
+  background-color: #23272a;
+  padding: 10px;
+  text-align: center;
+}
+
+.mobile-nav button {
+  background: #7289da;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .discord-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar-left, .sidebar-right {
+    width: auto;
+    padding: 15px;
+    max-height: 300px;
+  }
+
+  .chat-window {
+    height: 60vh;
+    border-radius: 0;
+    border: none;
+    margin-top: 0;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .discord-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .sidebar-left, .sidebar-right, .chat-window {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-left {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-right {
+    transform: translateX(100%);
+  }
+
+  .chat-window {
+    z-index: 1;
+  }
+
+  .sidebar-left.active, .sidebar-right.active, .chat-window.active {
+    transform: translateX(0);
+  }
+
+  .chat-input {
+    padding: 8px;
+  }
+
+  .chat-input button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .chat-input input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .sidebar-left h2, .sidebar-right h2 {
+    font-size: 1.2rem;
+  }
+
+  .sidebar-left li, .sidebar-right li {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chat-input {
+    flex-wrap: wrap;
+  }
+
+  .chat-input input {
+    flex-basis: 100%;
+    margin-bottom: 8px;
+  }
+
+  .chat-input button, .file-input {
+    flex: 1;
+    margin: 4px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .message {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .message-image {
+    max-width: 80px;
+  }
 }

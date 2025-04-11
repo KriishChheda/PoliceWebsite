@@ -1,4 +1,3 @@
-/* General Styling for the Landing Page */
 .landing-page-container {
     font-family: 'Arial', sans-serif;
     background-color: white;
@@ -6,7 +5,6 @@
     text-align: center;
   }
   
-  /* Navbar Styling */
   .navbar {
     background-color: #001F3F;
     padding: 10px 20px;
@@ -32,15 +30,14 @@
     text-decoration: underline;
   }
   
-  /* Map Container Styling */
   .map-container {
     margin-top: 40px;
   }
   
 
 .alert-section ul {
-    list-style-type: none;  /* Remove the default bullet points */
-    padding-left: 0;  /* Remove any default padding */
+    list-style-type: none;  
+    padding-left: 0; 
   }
   
   .alert-section h2{

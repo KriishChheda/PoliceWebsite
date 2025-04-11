@@ -131,8 +131,10 @@
   .submit-btn:hover {
     background-color: #D8C4B6;
   }
+
   .form-field {
     display: flex;
     align-items: center; 
     gap: 6px;
   }
+  

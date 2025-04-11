@@ -1,54 +1,129 @@
 .dashboard {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-section {
+  flex: 1;
+  max-width: 50%;
+}
+
+.right-section {
+  flex: 1;
+  max-width: 50%;
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert-box {
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-btn{
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+/* Label styling */
+.Label4 {
+  margin-bottom: 20px;
+}
+
+.Label4 h3 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 93%;
+}
+h3{
+  color:black;
+}
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    padding: 10px;
   }
   
-  .left-section {
-    flex: 1;
-    max-width: 50%;
-  }
-  
+  .left-section,
   .right-section {
-    flex: 1;
-    max-width: 50%;
-    background: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 100%;
   }
   
   .alert-box {
-    border-radius: 8px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin: 8px 0;
   }
   
-  .toggle-btn{
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  form input[type="text"],
+  form input[type="file"] {
+    width: 90%;
   }
   
-  .submit-btn {
-    width: 100%;
+  .right-section {
+    margin-top: 20px;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  .alert-box {
     padding: 10px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .error {
-    color: red;
     font-size: 14px;
   }
   
+  .Label4 h3 {
+    font-size: 18px;
+  }
+  
+  form input[type="text"],
+  form input[type="file"] {
+    width: 85%;
+  }
+}

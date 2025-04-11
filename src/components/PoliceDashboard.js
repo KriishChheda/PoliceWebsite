@@ -7,19 +7,19 @@ const locations = [
     id: 1,
     title: 'Andheri Incident',
     description: 'A case is being investigated in Andheri.',
-    location: [19.1202, 72.8351], // Andheri Lat, Long
+    location: [19.1202, 72.8351], 
   },
   {
     id: 2,
     title: 'Mumbai Robbery',
     description: 'A robbery case is under investigation in Mumbai.',
-    location: [19.0760, 72.8777], // Mumbai Lat, Long
+    location: [19.0760, 72.8777],
   },
   {
     id: 3,
     title: 'Missing Person in Navi Mumbai',
     description: 'A teenager has gone missing in Navi Mumbai.',
-    location: [19.0330, 73.0298], // Navi Mumbai Lat, Long
+    location: [19.0330, 73.0298], 
   }
 ];
 

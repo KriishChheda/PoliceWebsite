@@ -10,7 +10,6 @@ const EmergencySection = () => {
     e.preventDefault();
     alert(`🚨 Emergency Reported!\nType: ${emergencyType}\nLevel: ${level}\nDetails: ${details}`);
     
-    // Reset fields
     setEmergencyType("");
     setDetails("");
     setLevel("Medium");

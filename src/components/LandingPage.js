@@ -4,10 +4,9 @@ import "./LandingPage.css";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="landing-container">
-      {/* Left Side - Text & Features */}
       <div className="left-side">
         <motion.div 
           className="hero-section"
@@ -36,22 +35,21 @@ const LandingPage = () => {
             <h2>File FIR</h2>
             <p>Quickly submit an online complaint.</p>
           </div>
-          <div className="feature-box"  onClick={() => navigate("/cases")}>
+          <div className="feature-box" onClick={() => navigate("/cases")}>
             <h2>Track Cases</h2>
             <p>Stay updated on case progress.</p>
           </div>
-          <div className="feature-box"  onClick={() => navigate("/emergency")}>
+          <div className="feature-box" onClick={() => navigate("/emergency")}>
             <h2>Emergency Help</h2>
             <p>Instantly reach law enforcement.</p>
           </div>
         </motion.div>
       </div>
 
-      {/* Right Side - Flipping Emblem */}
       <div className="right-side">
         <motion.div 
           className="emblem-container"
-          animate={{ rotateY: [0, 180, 0] }} // Smooth front-to-back flip
+          animate={{ rotateY: [0, 180, 0] }} 
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
         >
           <img 

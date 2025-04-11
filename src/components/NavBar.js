@@ -1,19 +1,31 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">Police Portal</div>
-      <div className="navbar-links">
-        <Link to="/">Home</Link>
-        <Link to="user">User Dashboard</Link>
-        <Link to="/news">News</Link>
-        <Link to="/police">Police Dashboard</Link>
-        <Link to="/fir">FIR</Link>
-        <Link to="/discord">Discord</Link>
-        <Link to="/stats">Stats</Link>
-        <Link to="/cases">Cases</Link>
+      
+      <button className="menu-button" onClick={toggleMenu}>
+        Menu
+      </button>
+      
+      <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="user" onClick={() => setMenuOpen(false)}>User Dashboard</Link>
+        <Link to="/news" onClick={() => setMenuOpen(false)}>News</Link>
+        <Link to="/police" onClick={() => setMenuOpen(false)}>Police Dashboard</Link>
+        <Link to="/fir" onClick={() => setMenuOpen(false)}>FIR</Link>
+        <Link to="/discord" onClick={() => setMenuOpen(false)}>Discord</Link>
+        <Link to="/stats" onClick={() => setMenuOpen(false)}>Stats</Link>
+        <Link to="/cases" onClick={() => setMenuOpen(false)}>Cases</Link>
       </div>
     </nav>
   );
